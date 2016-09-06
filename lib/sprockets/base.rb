@@ -66,6 +66,8 @@ module Sprockets
       if uri
         load(uri)
       end
+    rescue => e
+      raise e, "Error trying to find '#{ args.first }':\n#{e.message}"
     end
 
     def find_all_linked_assets(*args)
